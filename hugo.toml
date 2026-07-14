@@ -1,0 +1,47 @@
+baseURL = "https://fastenerinsight.com"
+locale = "en-AU"
+title = "FastenerInsight"
+enableRobotsTXT = true
+enableEmoji = false
+rssLimit = 30
+summaryLength = 40
+
+theme = "fi"
+
+[permalinks]
+  posts = "/:slug/"
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  tagline = "The Intelligent Guide to Fastener Standards & Practice"
+  description = "FastenerInsight is a technical reference covering fastener standards, coatings, materials, engineering guides, and procurement specifications."
+  email = "normanli33@gmail.com"
+  github = "https://github.com/normanli33"
+  linkedin = ""
+  accentColor = "#1a5c8a"
+  accentColorLight = "#2C5282"
+  showTitle = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]

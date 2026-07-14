@@ -1,0 +1,66 @@
+{{ define "main" }}
+{{ if eq .Kind "home" }}
+<section class="home-intro">
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+</section>
+
+<h2 style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem;">Latest</h2>
+
+<ol class="posts-list">
+{{ range .Site.RegularPages.ByDate.Reverse }}
+  <li>
+    <div class="post-meta">
+      <span class="date">{{ .Date.Format "2 Jan 2006" }}</span>
+      {{ with .Params.tags }}
+      <span class="tags">· {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | relURL }}{{ $t | urlize }}/">{{ $t }}</a>{{ end }}</span>
+      {{ end }}
+    </div>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{ with .Params.summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+  </li>
+{{ end }}
+</ol>
+
+{{ else if eq .Kind "section" }}
+<h2 style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem;">{{ .Title }}</h2>
+<ol class="posts-list">
+{{ range .Pages.ByDate.Reverse }}
+  <li>
+    <div class="post-meta">
+      <span class="date">{{ .Date.Format "2 Jan 2006" }}</span>
+    </div>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  </li>
+{{ end }}
+</ol>
+
+{{ else if eq .Kind "taxonomy" }}
+<section class="tag-header">
+  <h1>Tags</h1>
+</section>
+<ul style="font-family: var(--font-sans); list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+{{ range .Pages.ByTitle }}
+  <li><a href="{{ .RelPermalink }}" style="display: inline-block; padding: 0.3rem 0.7rem; background: var(--wash); color: var(--accent); text-decoration: none; border-radius: 4px; font-size: 0.85rem;">{{ .Title }} ({{ len .Pages }})</a></li>
+{{ end }}
+</ul>
+
+{{ else if eq .Kind "term" }}
+<section class="tag-header">
+  <h1>Posts tagged: {{ .Title }}</h1>
+</section>
+<ol class="posts-list">
+{{ range .Pages.ByDate.Reverse }}
+  <li>
+    <div class="post-meta">
+      <span class="date">{{ .Date.Format "2 Jan 2006" }}</span>
+    </div>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  </li>
+{{ end }}
+</ol>
+
+{{ else }}
+{{ .Content }}
+{{ end }}
+{{ end }}

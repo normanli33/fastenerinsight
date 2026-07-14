@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="error-page">
+  <h1>404</h1>
+  <p>Page not found.</p>
+  <p><a href="{{ "/" | relURL }}" style="color: var(--accent);">Back to {{ .Site.Title }}</a></p>
+</div>
+{{ end }}

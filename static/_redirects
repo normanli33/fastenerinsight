@@ -1,0 +1,10 @@
+# Old Ghost blog redirects (maintain incoming links)
+/din-912-vs-iso-4762-a-professional-comparison/ /din-912-vs-iso-4762/ 301
+/geomet-vs-dacromet-vs-ruspert-performance-and-fastener-coating-requirements/ /geomet-vs-dacromet-vs-ruspert/ 301
+/ffw92-engineering-guide/ /ff-w-92-engineering-guide/ 301
+
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
