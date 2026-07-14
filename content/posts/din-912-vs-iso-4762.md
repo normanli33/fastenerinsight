@@ -83,7 +83,7 @@ draft: false
   <tr>
     <td><strong>Mechanical properties</strong></td>
     <td>Typically class 12.9 or 10.9</td>
-    <td>Defined by <a href="/iso-898-mechanical-properties-of-steel-fasteners/">ISO 898-1</a> (12.9, 10.9, 8.8)</td>
+    <td>Defined by <a href="https://blog.fastenerinsight.com/#articles">ISO 898-1</a> (12.9, 10.9, 8.8)</td>
   </tr>
   <tr>
     <td><strong>Socket depth</strong></td>
